@@ -1,20 +1,15 @@
 package views;
 
-import javax.swing.Action;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
@@ -27,29 +22,20 @@ public class MainView extends VBox {
     Label carsLabel;
     DataService datasService;
     Restapi restapi;
-    Button saveButton;
     Button addButton;
     Button deleteButton;
-    // InputPanel nameInput;
+    Button exitButton;
 
     private TableView<Car> tableView;
-    // private TextField nameInput,
-    // brandInput,
-    // platenumberInput,
-    // quantityInput,
-    // spaceInput,
-    // gearboxInput,
-    // priceInput;
 
-    public MainView(String email) {
+    public MainView() {
+
         carsLabel = new Label("Autók");
-
         this.initData();
         this.initTable();
         this.getChildren().add(carsLabel);
         this.getChildren().add(tableView);
         this.Buttons();
-        // this.input();
     }
 
     private void initTable() {
@@ -98,52 +84,6 @@ public class MainView extends VBox {
 
         tableView.setEditable(true);
 
-        // nameInput = new TextField();
-        // nameInput.setPromptText("Név");
-
-        // brandInput = new TextField();
-        // brandInput.setPromptText("Márka");
-
-        // platenumberInput = new TextField();
-        // platenumberInput.setPromptText("Rendszám");
-
-        // quantityInput = new TextField();
-        // quantityInput.setPromptText("Mennyiség");
-
-        // spaceInput = new TextField();
-        // spaceInput.setPromptText("Férőhely");
-
-        // gearboxInput = new TextField();
-        // gearboxInput.setPromptText("Váltó");
-
-        // priceInput = new TextField();
-        // priceInput.setPromptText("Ár");
-
-        // Button addButton = new Button("Hozzáad");
-        // addButton.setOnAction(e -> onClickAddButton());
-        // Button delButton = new Button("Törlés");
-        // delButton.setOnAction(e -> onClickDelButton(null));
-
-        // HBox inputBox = new HBox();
-        // inputBox.setPadding(new Insets(10, 10, 10, 10));
-        // inputBox.setSpacing(10);
-        // inputBox.getChildren().addAll(
-        // nameInput,
-        // brandInput,
-        // platenumberInput,
-        // quantityInput,
-        // spaceInput,
-        // gearboxInput,
-        // priceInput);
-        // HBox buttonBox = new HBox(10);
-        // buttonBox.setPadding(new Insets(10, 10, 10, 10));
-        // buttonBox.setSpacing(10);
-        // buttonBox.getChildren().addAll(
-        // addButton, delButton);
-
-        // VBox vbox = new VBox();
-        // vbox.getChildren().addAll(tableView, inputBox, buttonBox);
-
         tableView.setItems(this.getCars());
 
         tableView.getColumns().add(idCol);
@@ -166,56 +106,52 @@ public class MainView extends VBox {
 
     private void Buttons() {
 
-        // mentés gomb
-        this.saveButton = new Button();
-        this.saveButton.setText("Mentés");
-        this.getChildren().add(this.saveButton);
-
         // hozzáad gomb
 
         this.addButton = new Button();
         this.addButton.setText("Hozzáadás");
+        this.addButton.setPadding(new Insets(0, 20, 10, 20));
         this.getChildren().add(this.addButton);
+        // this.addButton.setOnAction(new EventHandler<ActionEvent>() {
+
+        // @Override
+        // public void handle(ActionEvent event) {
+        // Label secondLabel = new Label("Hozzáadás");
+
+        // StackPane secondaryLayout = new StackPane();
+        // secondaryLayout.getChildren().addAll(secondLabel);
+
+        // Scene secondScene = new Scene(secondaryLayout, 300, 200);
+
+        // Stage newWindow = new Stage();
+        // newWindow.setTitle("Hozzáadás");
+        // newWindow.setScene(secondScene);
+
+        // }
+        // });
 
         // torles gomb
         this.deleteButton = new Button();
         this.deleteButton.setText("Torles");
         this.getChildren().add(this.deleteButton);
+        this.deleteButton.setPadding(new Insets(0, 20, 10, 20));
+        this.deleteButton.setOnAction(e -> {
+            tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
+            ObservableList<Car> selectedCar, car;
+            car = tableView.getItems();
+            selectedCar = tableView.getSelectionModel().getSelectedItems();
+            selectedCar.forEach(car::remove);
+        });
+
+        // kilepés
+        this.exitButton = new Button();
+        this.exitButton.setText("Kilépés");
+        this.getChildren().add(this.exitButton);
+        this.exitButton.setPadding(new Insets(0, 20, 10, 20));
+        exitButton.setOnAction((ActionEvent event) -> {
+            System.exit(0);
+        });
     }
-
-    // private void input() {
-    // this.nameInput = new InputPanel();
-    // this.nameInput.setText("Név");
-    // this.getChildren().add(this.nameInput);
-    // }
-
-    // private void onClickAddButton() {
-    // String name = this.nameInput.getText();
-    // String brand = this.brandInput.getText();
-    // String platenumber = this.brandInput.getText();
-    // Integer quantity = Integer.parseInt(this.quantityInput.getText());
-    // Integer space = Integer.parseInt(this.spaceInput.getText());
-    // String gearbox = this.gearboxInput.getText();
-    // Double price = Double.parseDouble(this.priceInput.getText());
-    // Car car = new Car(name, brand, platenumber, quantity, space, gearbox, price);
-    // tableView.getItems().add(car);
-    // this.nameInput.clear();
-    // this.brandInput.clear();
-    // this.platenumberInput.clear();
-    // this.quantityInput.clear();
-    // this.spaceInput.clear();
-    // this.gearboxInput.clear();
-    // this.priceInput.clear();
-    // }
-
-    // private void onClickDelButton(Action event) {
-
-    // tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
-    // // ObservableList<Car> selectedCar, car;
-    // // car = tableView.getItems();
-    // // selectedCar = tableView.getSelectionModel().getSelectedItems();
-    // // selectedCar.forEach(car::remove);
-    // }
 
     private ObservableList<Car> getCars() {
         ObservableList<Car> carsList = FXCollections.observableArrayList(restapi.getCars());
