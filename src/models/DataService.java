@@ -31,7 +31,7 @@ public class DataService {
         ResultSet resultSet = statement.executeQuery(sql);
         ArrayList<Car> carsList = new ArrayList<>();
         while (resultSet.next()) {
-            Car cars = new Car(sql, sql, sql, 0, 0, sql, 0);
+            Car cars = new Car(0, sql, sql, sql, 0, 0, sql, 0);
             cars.id = resultSet.getInt("id");
             cars.name = resultSet.getString("name");
             cars.brand = resultSet.getString("brand");

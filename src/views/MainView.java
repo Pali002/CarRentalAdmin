@@ -32,6 +32,7 @@ public class MainView extends VBox {
     Button addButton;
     Button deleteButton;
     Button exitButton;
+    TextField idField;
     TextField nameField;
     TextField brandField;
     TextField platenumberField;
@@ -39,6 +40,8 @@ public class MainView extends VBox {
     TextField spaceField;
     TextField gearboxField;
     TextField priceField;
+    Button submitButton;
+    Button clearButton;
 
     private TableView<Car> tableView;
 
@@ -60,6 +63,7 @@ public class MainView extends VBox {
         TableColumn<Car, Integer> idCol = new TableColumn<>("Id");
         idCol.setMinWidth(50);
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         TableColumn<Car, String> nameCol = new TableColumn<>("Név");
         nameCol.setMinWidth(50);
@@ -125,6 +129,7 @@ public class MainView extends VBox {
         this.addButton = new Button();
         this.addButton.setText("Hozzáadás");
         this.getChildren().add(this.addButton);
+        this.addButton.setPadding(new Insets(0, 20, 10, 20));
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -136,58 +141,69 @@ public class MainView extends VBox {
                 grid.setPadding(new Insets(25, 25, 25, 25));
 
                 // Add labels and text fields for make, model, year, and color
+
+                Label idLabel = new Label("Id:");
+                grid.add(idLabel, 0, 0);
+                idField = new TextField();
+                grid.add(idField, 1, 0);
+
                 Label nameLabel = new Label("Név:");
-                grid.add(nameLabel, 0, 0);
+                grid.add(nameLabel, 0, 1);
                 nameField = new TextField();
-                grid.add(nameField, 1, 0);
+                grid.add(nameField, 1, 1);
 
                 Label brandLabel = new Label("Márka:");
-                grid.add(brandLabel, 0, 1);
+                grid.add(brandLabel, 0, 2);
                 brandField = new TextField();
-                grid.add(brandField, 1, 1);
+                grid.add(brandField, 1, 2);
 
                 Label platenumberLabel = new Label("Rendszám:");
-                grid.add(platenumberLabel, 0, 2);
+                grid.add(platenumberLabel, 0, 3);
                 platenumberField = new TextField();
-                grid.add(platenumberField, 1, 2);
+                grid.add(platenumberField, 1, 3);
 
                 Label quantityLabel = new Label("Mennyiség:");
-                grid.add(quantityLabel, 0, 3);
+                grid.add(quantityLabel, 0, 4);
                 quantityField = new TextField();
-                grid.add(quantityField, 1, 3);
+                grid.add(quantityField, 1, 4);
 
                 Label spaceLabel = new Label("Férőhely:");
-                grid.add(spaceLabel, 0, 4);
+                grid.add(spaceLabel, 0, 5);
                 spaceField = new TextField();
-                grid.add(spaceField, 1, 4);
+                grid.add(spaceField, 1, 5);
 
                 Label gearboxLabel = new Label("Váltó:");
-                grid.add(gearboxLabel, 0, 5);
+                grid.add(gearboxLabel, 0, 6);
                 gearboxField = new TextField();
-                grid.add(gearboxField, 1, 5);
+                grid.add(gearboxField, 1, 6);
 
                 Label priceLabel = new Label("Ár:");
-                grid.add(priceLabel, 0, 6);
+                grid.add(priceLabel, 0, 7);
                 priceField = new TextField();
-                grid.add(priceField, 1, 6);
+                grid.add(priceField, 1, 7);
+
+                // Label messageLabel = new Label("Sikeres hozzáadás");
+                // grid.add(messageLabel, 0, 8);
+                // messageLabel.setVisible(false);
 
                 // HBox, mentés és mezők űrítése gomb
                 HBox hbBtn = new HBox(10);
                 hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-                Button submitButton = new Button("Hozzáasás");
-                Button clearButton = new Button("Törlés");
+                submitButton = new Button("Hozzáasás");
+                clearButton = new Button("Törlés");
                 hbBtn.getChildren().addAll(submitButton, clearButton);
-                grid.add(hbBtn, 1, 7);
+                grid.add(hbBtn, 1, 9);
 
                 Stage addStage = new Stage();
-                Scene addScene = new Scene(grid, 300, 350);
+                Scene addScene = new Scene(grid, 350, 350);
                 addStage.setTitle("Új autó felvétele");
                 addStage.setScene(addScene);
                 addStage.show();
 
                 // mentés gomb
                 submitButton.setOnAction(event -> {
-                    Car car = new Car(nameField.getText(), brandField.getText(), platenumberField.getText(),
+                    Car car = new Car(Integer.parseInt(idField.getText()), nameField.getText(), brandField.getText(),
+                            platenumberField.getText(),
                             Integer.parseInt(quantityField.getText()), Integer.parseInt((spaceField.getText())),
                             gearboxField.getText(),
                             Double.parseDouble(priceField.getText()));
@@ -196,6 +212,7 @@ public class MainView extends VBox {
 
                 // mezők ürítése gomb
                 clearButton.setOnAction(event -> {
+                    idField.setText("");
                     nameField.setText("");
                     brandField.setText("");
                     platenumberField.setText("");
@@ -212,13 +229,6 @@ public class MainView extends VBox {
         this.deleteButton.setText("Torles");
         this.getChildren().add(this.deleteButton);
         this.deleteButton.setPadding(new Insets(0, 20, 10, 20));
-        this.deleteButton.setOnAction(e -> {
-            tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
-            ObservableList<Car> selectedCar, car;
-            car = tableView.getItems();
-            selectedCar = tableView.getSelectionModel().getSelectedItems();
-            selectedCar.forEach(car::remove);
-        });
 
         // kilepés
         this.exitButton = new Button();
@@ -238,4 +248,5 @@ public class MainView extends VBox {
     private void initData() {
         this.restapi = new Restapi();
     }
+
 }

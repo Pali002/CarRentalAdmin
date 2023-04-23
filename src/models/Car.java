@@ -10,7 +10,9 @@ public class Car {
     String gearbox;
     double price;
 
-    public Car(String name, String brand, String platenumber, int quantity, int space, String gearbox, double price) {
+    public Car(int id, String name, String brand, String platenumber, int quantity, int space, String gearbox,
+            double price) {
+        this.id = id;
         this.name = name;
         this.brand = brand;
         this.platenumber = platenumber;
