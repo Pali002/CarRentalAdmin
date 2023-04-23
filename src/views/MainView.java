@@ -140,8 +140,6 @@ public class MainView extends VBox {
                 grid.setVgap(10);
                 grid.setPadding(new Insets(25, 25, 25, 25));
 
-                // Add labels and text fields for make, model, year, and color
-
                 Label idLabel = new Label("Id:");
                 grid.add(idLabel, 0, 0);
                 idField = new TextField();
@@ -226,7 +224,7 @@ public class MainView extends VBox {
 
         // torles gomb
         this.deleteButton = new Button();
-        this.deleteButton.setText("Torles");
+        this.deleteButton.setText("Törlés");
         this.getChildren().add(this.deleteButton);
         this.deleteButton.setPadding(new Insets(0, 20, 10, 20));
         this.deleteButton.setOnAction(e -> {
