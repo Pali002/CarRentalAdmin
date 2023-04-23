@@ -32,6 +32,13 @@ public class MainView extends VBox {
     Button addButton;
     Button deleteButton;
     Button exitButton;
+    TextField nameField;
+    TextField brandField;
+    TextField platenumberField;
+    TextField quantityField;
+    TextField spaceField;
+    TextField gearboxField;
+    TextField priceField;
 
     private TableView<Car> tableView;
 
@@ -131,44 +138,44 @@ public class MainView extends VBox {
                 // Add labels and text fields for make, model, year, and color
                 Label nameLabel = new Label("Név:");
                 grid.add(nameLabel, 0, 0);
-                TextField nameField = new TextField();
+                nameField = new TextField();
                 grid.add(nameField, 1, 0);
 
                 Label brandLabel = new Label("Márka:");
                 grid.add(brandLabel, 0, 1);
-                TextField brandField = new TextField();
+                brandField = new TextField();
                 grid.add(brandField, 1, 1);
 
                 Label platenumberLabel = new Label("Rendszám:");
                 grid.add(platenumberLabel, 0, 2);
-                TextField platenumberField = new TextField();
+                platenumberField = new TextField();
                 grid.add(platenumberField, 1, 2);
 
                 Label quantityLabel = new Label("Mennyiség:");
                 grid.add(quantityLabel, 0, 3);
-                TextField quantityField = new TextField();
+                quantityField = new TextField();
                 grid.add(quantityField, 1, 3);
 
                 Label spaceLabel = new Label("Férőhely:");
                 grid.add(spaceLabel, 0, 4);
-                TextField spaceField = new TextField();
+                spaceField = new TextField();
                 grid.add(spaceField, 1, 4);
 
                 Label gearboxLabel = new Label("Váltó:");
                 grid.add(gearboxLabel, 0, 5);
-                TextField gearboxField = new TextField();
+                gearboxField = new TextField();
                 grid.add(gearboxField, 1, 5);
 
                 Label priceLabel = new Label("Ár:");
                 grid.add(priceLabel, 0, 6);
-                TextField priceField = new TextField();
+                priceField = new TextField();
                 grid.add(priceField, 1, 6);
 
                 // HBox, mentés és mezők űrítése gomb
                 HBox hbBtn = new HBox(10);
                 hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-                Button submitButton = new Button("Submit");
-                Button clearButton = new Button("Clear");
+                Button submitButton = new Button("Hozzáasás");
+                Button clearButton = new Button("Törlés");
                 hbBtn.getChildren().addAll(submitButton, clearButton);
                 grid.add(hbBtn, 1, 7);
 
@@ -179,9 +186,13 @@ public class MainView extends VBox {
                 addStage.show();
 
                 // mentés gomb
-                // submitButton.setOnAction(event -> {
-
-                // });
+                submitButton.setOnAction(event -> {
+                    Car car = new Car(nameField.getText(), brandField.getText(), platenumberField.getText(),
+                            Integer.parseInt(quantityField.getText()), Integer.parseInt((spaceField.getText())),
+                            gearboxField.getText(),
+                            Double.parseDouble(priceField.getText()));
+                    tableView.getItems().add(car);
+                });
 
                 // mezők ürítése gomb
                 clearButton.setOnAction(event -> {
