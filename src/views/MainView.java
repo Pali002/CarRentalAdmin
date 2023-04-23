@@ -229,6 +229,12 @@ public class MainView extends VBox {
         this.deleteButton.setText("Torles");
         this.getChildren().add(this.deleteButton);
         this.deleteButton.setPadding(new Insets(0, 20, 10, 20));
+        this.deleteButton.setOnAction(e -> {
+            Car selectedCar = tableView.getSelectionModel().getSelectedItem();
+            if (selectedCar != null) {
+                tableView.getItems().remove(selectedCar);
+            }
+        });
 
         // kilepés
         this.exitButton = new Button();
