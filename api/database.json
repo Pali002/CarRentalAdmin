@@ -6,7 +6,6 @@
             "brand": "Citroen",
             "platenumber": "AA-AD-525",
             "quantity": 5,
-            "space": 5,
             "gearbox": "manual",
             "price": 15500
         },
@@ -16,7 +15,6 @@
             "brand": "Seat",
             "platenumber": "AB-AA-855",
             "quantity": 3,
-            "space": 5,
             "gearbox": "manual",
             "price": 17600
         },
@@ -26,7 +24,6 @@
             "brand": "Suzuki",
             "platenumber": "AA-AB-914",
             "quantity": 2,
-            "space": 5,
             "gearbox": "manual",
             "price": 25000
         },
@@ -36,7 +33,6 @@
             "brand": "Toyota",
             "platenumber": "AA-AA-324",
             "quantity": 7,
-            "space": 4,
             "gearbox": "manual",
             "price": 12400
         },
@@ -46,129 +42,116 @@
             "brand": "Opel",
             "platenumber": "AA-AE-313",
             "quantity": 4,
-            "space": 5,
             "gearbox": "manual",
             "price": 23000
         },
         {
             "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
+            "name": "Seat Leon",
+            "brand": "Seat",
+            "platenumber": "AC-AB-264",
+            "quantity": 3,
+            "gearbox": "manual",
             "price": 28000
         },
         {
-            "id": 6,
+            "id": 7,
             "name": "Volkswagen Polo",
             "brand": "Volkswagen",
             "platenumber": "AB-AE-216",
             "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "gearbox": "automatic",
+            "price": 21000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "id": 8,
+            "name": "Toyota Yaris",
+            "brand": "Toyota",
+            "platenumber": "AA-AE-211",
+            "quantity": 4,
+            "gearbox": "manual",
+            "price": 12000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
+            "id": 9,
+            "name": "Toyota Corolla",
+            "brand": "Toyota",
+            "platenumber": "AB-AB-142",
             "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "gearbox": "manual",
+            "price": 23500
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "id": 10,
+            "name": "Opel Vivaro",
+            "brand": "Opel",
+            "platenumber": "AB-AD-642",
+            "quantity": 1,
+            "gearbox": "manual",
+            "price": 34000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
+            "id": 11,
+            "name": "Kia Picanto",
+            "brand": "Kia",
+            "platenumber": "AB-AF-385",
             "quantity": 2,
-            "space": 5,
             "gearbox": "automata",
-            "price": 28000
+            "price": 26500
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
+            "id": 12,
+            "name": "Renault Trafic",
+            "brand": "Renault",
+            "platenumber": "AB-AE-963",
             "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "gearbox": "manual",
+            "price": 37000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "id": 13,
+            "name": "Mercedes-Benz C-Class",
+            "brand": "Mercedes",
+            "platenumber": "AA-AE-969",
+            "quantity": 1,
+            "gearbox": "automatic",
+            "price": 67000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
+            "id": 14,
+            "name": "Volkswagen Passat",
             "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "platenumber": "AB-AG-536",
+            "quantity": 3,
+            "gearbox": "automatic",
+            "price": 42500
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
+            "id": 15,
+            "name": "Ford Focus Estate",
+            "brand": "Ford",
+            "platenumber": "AC-AA-333",
             "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "gearbox": "manual",
+            "price": 33000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "id": 16,
+            "name": "BMW M-3",
+            "brand": "BMW",
+            "platenumber": "AA-AA-111",
+            "quantity": 1,
+            "gearbox": "manual",
+            "price": 47000
         },
         {
-            "id": 6,
-            "name": "Volkswagen Polo",
-            "brand": "Volkswagen",
-            "platenumber": "AB-AE-216",
-            "quantity": 2,
-            "space": 5,
-            "gearbox": "automata",
-            "price": 28000
+            "id": 17,
+            "name": "Opel Zafira",
+            "brand": "Opel",
+            "platenumber": "AB-AB-847",
+            "quantity": 4,
+            "gearbox": "manual",
+            "price": 44000
         }
     ]
 }

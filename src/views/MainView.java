@@ -37,7 +37,6 @@ public class MainView extends VBox {
     TextField brandField;
     TextField platenumberField;
     TextField quantityField;
-    TextField spaceField;
     TextField gearboxField;
     TextField priceField;
     Button submitButton;
@@ -85,11 +84,6 @@ public class MainView extends VBox {
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         quantityCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
-        TableColumn<Car, Integer> spaceCol = new TableColumn<>("Férőhely");
-        spaceCol.setMinWidth(50);
-        spaceCol.setCellValueFactory(new PropertyValueFactory<>("space"));
-        spaceCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-
         TableColumn<Car, String> gearboxCol = new TableColumn<>("Váltó");
         gearboxCol.setMinWidth(50);
         gearboxCol.setCellValueFactory(new PropertyValueFactory<>("gearbox"));
@@ -109,7 +103,6 @@ public class MainView extends VBox {
         tableView.getColumns().add(brandCol);
         tableView.getColumns().add(platenumberCol);
         tableView.getColumns().add(quantityCol);
-        tableView.getColumns().add(spaceCol);
         tableView.getColumns().add(gearboxCol);
         tableView.getColumns().add(priceCol);
 
@@ -165,20 +158,15 @@ public class MainView extends VBox {
                 quantityField = new TextField();
                 grid.add(quantityField, 1, 4);
 
-                Label spaceLabel = new Label("Férőhely:");
-                grid.add(spaceLabel, 0, 5);
-                spaceField = new TextField();
-                grid.add(spaceField, 1, 5);
-
                 Label gearboxLabel = new Label("Váltó:");
-                grid.add(gearboxLabel, 0, 6);
+                grid.add(gearboxLabel, 0, 5);
                 gearboxField = new TextField();
-                grid.add(gearboxField, 1, 6);
+                grid.add(gearboxField, 1, 5);
 
                 Label priceLabel = new Label("Ár:");
-                grid.add(priceLabel, 0, 7);
+                grid.add(priceLabel, 0, 6);
                 priceField = new TextField();
-                grid.add(priceField, 1, 7);
+                grid.add(priceField, 1, 6);
 
                 // Label messageLabel = new Label("Sikeres hozzáadás");
                 // grid.add(messageLabel, 0, 8);
@@ -202,7 +190,7 @@ public class MainView extends VBox {
                 submitButton.setOnAction(event -> {
                     Car car = new Car(Integer.parseInt(idField.getText()), nameField.getText(), brandField.getText(),
                             platenumberField.getText(),
-                            Integer.parseInt(quantityField.getText()), Integer.parseInt((spaceField.getText())),
+                            Integer.parseInt(quantityField.getText()),
                             gearboxField.getText(),
                             Double.parseDouble(priceField.getText()));
                     tableView.getItems().add(car);
@@ -215,7 +203,6 @@ public class MainView extends VBox {
                     brandField.setText("");
                     platenumberField.setText("");
                     quantityField.setText("");
-                    spaceField.setText("");
                     gearboxField.setText("");
                     priceField.setText("");
                 });
