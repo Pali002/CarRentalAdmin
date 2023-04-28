@@ -1,6 +1,6 @@
 # Car rental 
 
-## Fejlesztői dokumentáció - asztali alkalmazás
+## dokumentáció - asztali alkalmazás
 
 ## 2023
 
